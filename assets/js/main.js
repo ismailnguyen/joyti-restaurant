@@ -242,7 +242,7 @@ $(document).ready(function($) {
 			  var tabContentHtml = "<div class=\"tab-pane fade ".concat(i == 0 ? 'show active' : '', "\" id=\"menu-item-").concat(i, "\" role=\"tabpanel\"><div class=\"row\"><div class=\"col-md\"><ul class=\"list-unstyled pb_food-menu\">");
 
 			  for (var j = 0; j < currentSheetValues.length; j++) {
-				tabContentHtml += "<li><div class=\"row\"><div class=\"col-lg-10\"><h3 class=\"pb_font-18 font-weight-bold\">".concat(currentSheetValues[j].Name, "</h3><p class=\"mb-0\">").concat(currentSheetValues[j].Description, "</p></div><div class=\"col-lg-2\"><span class=\"price\"><sup>\u20AC</sup>").concat(currentSheetValues[j].Price, "</span></div></div></li>");
+				tabContentHtml += "<li><div class=\"row\"><div class=\"col-lg-10\"><h3 class=\"pb_font-18 font-weight-bold\">".concat(currentSheetValues[j].Name, "</h3><p class=\"mb-0\">").concat(currentSheetValues[j].Description, "</p></div><div class=\"col-lg-2\"><span class=\"price\">").concat(currentSheetValues[j].Price, "<sup>\u20AC</sup></span></div></div></li>");
 			  }
 
 			  tabContentHtml += '</ul></div></div></div>';
