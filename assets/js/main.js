@@ -214,5 +214,45 @@ $(document).ready(function($) {
 	}
 	ytpPlayer();
 
+	var googleSheetsMenuInit = function() {
+		Tabletop.init({
+		  key: '1LlfaWrcFtBKpSjSIaXgAR7f4gZptiHIm68mxEicLfSM',
+		  callback: function (data, tabletop) {
+			const sheetsName = tabletop.foundSheetNames;
+
+			for (var i = 0; i < sheetsName.length; i++) {
+
+			  var currentSheetName = sheetsName[i];
+			  var currentSheet = tabletop.sheets(currentSheetName);
+			  
+			  var currentSheetValues = currentSheet.elements;
+
+			  var tabItemHtml = '<li class="nav-item">';
+			  if (i == 0) {
+				tabItemHtml += '<a class="nav-link active p-3 red-border" data-toggle="list" href="#menu-item-'+i+'" role="tab">'+currentSheetName+'</a>';
+			  } else {
+				tabItemHtml += '<a class="nav-link p-3" data-toggle="list" href="#menu-item-'+i+'" role="tab">'+currentSheetName+'</a>';
+			  }
+			  tabItemHtml += '</li>';
+
+			  $('#menu-tab-items').append(tabItemHtml);
+			  
+			  var currentSheetValues = currentSheet.elements;
+
+			  var tabContentHtml = "<div class=\"tab-pane fade ".concat(i == 0 ? 'show active' : '', "\" id=\"menu-item-").concat(i, "\" role=\"tabpanel\"><div class=\"row\"><div class=\"col-md\"><ul class=\"list-unstyled pb_food-menu\">");
+
+			  for (var j = 0; j < currentSheetValues.length; j++) {
+				tabContentHtml += "<li><div class=\"row\"><div class=\"col-lg-10\"><h3 class=\"pb_font-18 font-weight-bold\">".concat(currentSheetValues[j].Name, "</h3><p class=\"mb-0\">").concat(currentSheetValues[j].Description, "</p></div><div class=\"col-lg-2\"><span class=\"price\"><sup>\u20AC</sup>").concat(currentSheetValues[j].Price, "</span></div></div></li>");
+			  }
+
+			  tabContentHtml += '</ul></div></div></div>';
+
+			  $('#menu-tab-content').append(tabContentHtml);
+			}
+		  },
+		})
+	  }
+	  googleSheetsMenuInit();
+
 });
 

@@ -1721,4 +1721,8 @@ a {
   color: whitesmoke;
 }
 
+.nav-link.red-border {
+  border: 1px solid indianred !important;
+}
+
 /*# sourceMappingURL=style.css.map */
